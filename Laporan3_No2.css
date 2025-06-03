@@ -1,93 +1,97 @@
 body {
-    font-family: Arial, sans-serif;       /* Atur font utama halaman */
-    background-color: #ffffff;             /* Latar putih */
-    margin: 0;                            /* Hilangkan margin default browser */
-    padding: 0;                           /* Hilangkan padding default browser */
-    display: flex;                       /* Gunakan flexbox untuk tata letak */
-    justify-content: center;             /* Pusatkan konten secara horizontal */
-    align-items: center;                 /* Pusatkan konten secara vertikal */
-    flex-direction: column;              /* Susun konten secara vertikal */
+    font-family: Arial, sans-serif;     /* Font utama halaman */
+    background-color: #ffffff;          /* Latar belakang putih */
+    margin: 0;
+    padding: 0;
+    display: flex;                      /* Gunakan Flexbox */
+    justify-content: center;           /* Pusat horizontal */
+    align-items: center;               /* Pusat vertikal */
+    flex-direction: column;            /* Susun vertikal */
 }
 
 h1 {
-    margin-top: 50px;                    /* Jarak atas heading */
-    margin-bottom: 30px;                 /* Jarak bawah heading */
-    font-size: 32px;                    /* Ukuran font */
-    font-weight: bold;                  /* Tebalkan tulisan */
-    text-align: center;                 /* Ratakan teks di tengah */
-    font-family: sans-serif;            /* Font sans-serif khusus heading */
+    margin: 50px 0 30px;               /* Margin atas dan bawah */
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    font-family: sans-serif;
 }
 
 form {
-    width: 90%;                        /* Lebar form 90% dari container */
-    max-width: 1000px;                 /* Maksimal lebar 1000px */
-    display: grid;                    /* Gunakan grid layout */
-    grid-template-columns: repeat(12, 1fr);  /* 12 kolom dengan ukuran sama */
-    gap: 24px;                        /* Jarak antar kolom dan baris */
-    padding: 0 20px;                  /* Padding kiri kanan dalam form */
+    width: 90%;
+    max-width: 1000px;
+    display: grid;                     /* Gunakan Grid Layout */
+    grid-template-columns: repeat(12, 1fr); /* 12 kolom seimbang */
+    gap: 24px;                         /* Jarak antar elemen */
+    padding: 0 20px;
 }
 
-/* Baris 1 - dua input utama */
+/* Baris 1: Nama & NIM */
 form > div:nth-child(1),
 form > div:nth-child(2) {
-    grid-column: span 6;              /* Masing-masing elemen span 6 kolom */
-    margin-bottom: 10px;              /* Jarak bawah antar elemen */
+    grid-column: span 6;              /* Masing-masing 6 kolom */
+    margin-bottom: 10px;
 }
 
-/* Baris 2 - tiga input berikutnya */
+/* Baris 2: Asal, Dosen, Tanggal */
 form > div:nth-child(3),
 form > div:nth-child(4),
 form > div:nth-child(5) {
-    grid-column: span 4;              /* Masing-masing span 4 kolom */
-    margin-bottom: 10px;              /* Jarak bawah antar elemen */
+    grid-column: span 4;              /* Masing-masing 4 kolom */
+    margin-bottom: 10px;
 }
 
-/* Baris 3 - bagian favorite section */
+/* Baris 3: Favorit */
 .favorite-section {
-    grid-column: span 12;             /* Span penuh 12 kolom */
-    margin-top: 10px;                 /* Jarak atas */
+    grid-column: span 12;
+    margin-top: 10px;
 }
+
 .favorite-inputs-row {
-    display: grid;                   /* Grid dalam favorite section */
-    grid-template-columns: repeat(2, 1fr);  /* Dua kolom sama besar */
-    gap: 20px;                      /* Jarak antar kolom */
-    margin-top: 10px;               /* Jarak atas */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom favorit */
+    gap: 20px;
+    margin-top: 10px;
 }
 
-/* Baris 4 - tombol submit */
+/* Baris 4: Tombol */
 form > div:last-child {
-    grid-column: span 12;             /* Span penuh 12 kolom */
-    display: flex;                   /* Flexbox untuk tombol */
-    justify-content: center;         /* Pusatkan tombol horizontal */
-    margin-top: 20px;                /* Jarak atas tombol */
+    grid-column: span 12;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
+/* Label */
 label {
-    margin-bottom: 5px;              /* Jarak bawah label */
-    font-weight: 500;                /* Tebal sedang */
-    display: block;                  /* Tampilkan sebagai block */
+    margin-bottom: 5px;
+    font-weight: 500;
+    display: block;
 }
 
-input, select {
-    padding: 12px;                  /* Ruang dalam input/select */
-    border: 1px solid #ccc;          /* Border abu-abu terang */
-    border-radius: 8px;              /* Sudut membulat */
-    font-size: 14px;                 /* Ukuran font input */
-    width: 100%;                    /* Lebar penuh container */
-    box-sizing: border-box;          /* Hitung padding & border di lebar */
+/* Input & Select */
+input,
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Tombol */
 button {
-    padding: 14px 482px;             /* Padding vertikal 14px, horizontal diperlebar */
-    background-color: #006aff;       /* Warna biru tombol */
-    color: white;                   /* Warna teks putih */
-    border: none;                   /* Hilangkan border default */
-    border-radius: 8px;              /* Sudut membulat tombol */
-    font-size: 16px;                 /* Ukuran font tombol */
-    cursor: pointer;                /* Ubah kursor saat hover */
-    transition: background-color 0.3s ease; /* Animasi halus saat hover */
+    padding: 14px 482px;
+    background-color: #006aff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0051c9;       /* Warna tombol saat hover */
+    background-color: #0051c9;
 }
