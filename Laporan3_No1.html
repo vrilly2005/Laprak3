@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laporan Praktikum - 03</title>
+  <link rel="stylesheet" href="Laporan3_No1.css">
+</head>
+<body>
+
+  <h1>Laporan Praktikum - 03</h1>
+
+  <div id="alert" class="alert hidden">
+    Asal belum diisi.
+    <span class="close-btn" onclick="closeAlert('alert')">&times;</span>
+  </div>
+
+  <form id="form">
+    <div class="form-row">
+      <div>
+        <label>Masukkan Nama:</label>
+        <input type="text" id="inputName" />
+      </div>
+      <div>
+        <label>Masukkan NIM:</label>
+        <input type="number" id="inputNIM" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Masukkan Asal Kamu:</label>
+        <input type="text" id="inputAsal" placeholder="Masukkan data di sini"/>
+      </div>
+      <div>
+        <label>Pilih Dosen Favorit:</label>
+        <select id="selectDosen">
+          <option selected disabled>Pilih salah satu</option>
+          <option value="Pak Agus Mulyanto">Pak Agus Mulyanto</option>
+          <option value="Bu Yuni Roza">Bu Yuni Roza</option>
+          <option value="Bu Yessy Asri">Bu Yessy Asri</option>
+        </select>
+      </div>
+      <div>
+        <label>Pilih Tanggal Lahir anda:</label>
+        <input type="date" id="inputTanggalLahir" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Masukkan Nama Teman Favorit:</label>
+        <input type="text" id="inputTemanFavorit" placeholder="Budi"/>
+      </div>
+      <div>
+        <label>Masukkan AI Favorit:</label>
+        <input type="text" id="inputAiFavorit" placeholder="Meta AI"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div style="flex: 1;">
+        <button type="submit">Kirim</button>
+      </div>
+    </div>
+  </form>
+
+  <div id="output" class="output-section"></div>
+
+  <script>
+    const form = document.getElementById("form");
+    const output = document.getElementById("output");
+    const alertBox = document.getElementById("alert");
+
+    function closeAlert(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+
+    function removeBox(el) {
+      el.parentElement.remove();
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("inputName").value;
+      const nim = document.getElementById("inputNIM").value;
+      const asal = document.getElementById("inputAsal").value;
+      const dosen = document.getElementById("selectDosen").value;
+      const tgl = document.getElementById("inputTanggalLahir").value;
+      const teman = document.getElementById("inputTemanFavorit").value;
+      const ai = document.getElementById("inputAiFavorit").value;
+
+      if (!asal) {
+        alertBox.classList.remove("hidden");
+        return;
+      }
+
+      alertBox.classList.add("hidden");
+
+      output.innerHTML = `
+        <div class="output-box">Asal Kamu: ${asal} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="output-box">Dosen Favorit: ${dosen} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="output-box">Tanggal Lahir Kamu: ${tgl} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="output-box">Teman Favorit: ${teman} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="output-box">AI Favorit: ${ai} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="success">Sukses! Semua data telah dikirim. <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+      `;
+    });
+  </script>
+</body>
+</html>

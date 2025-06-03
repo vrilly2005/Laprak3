@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vhista vrilly Womsiwor</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- SweetAlert2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+  <!-- Custom CSS (opsional) -->
+  <link rel="stylesheet" href="Laporan3_No1.css" />
+</head>
+
+<body class="container mt-5">
+
+  <h1 class="text-center mb-4">Laporan Praktikum Ke-3</h1>
+
+  <!-- ALERT BOOTSTRAP -->
+  <div id="alertBox" class="alert alert-danger d-none" role="alert">
+    Mohon lengkapi seluruh isian yang tersedia!
+  </div>
+
+  <!-- FORM INPUT -->
+  <form id="myForm" class="border p-4 rounded-3 shadow-sm bg-light">
+    <!-- Input Nama -->
+    <div class="mb-3">
+      <label for="inputName" class="form-label">Tulis Nama Anda:</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Contoh: Rina Anggraini" required />
+    </div>
+
+    <!-- Input NIM -->
+    <div class="mb-3">
+      <label for="inputNIM" class="form-label">Tulis NIM Anda:</label>
+      <input type="text" class="form-control" id="inputNIM" placeholder="Nomor Induk Mahasiswa" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+    </div>
+
+    <!-- Input Asal -->
+    <div class="mb-3">
+      <label for="inputAsal" class="form-label">Kota Asal:</label>
+      <input type="text" class="form-control" id="inputAsal" placeholder="Tulis kota asal kamu di sini" required />
+    </div>
+
+    <!-- Dosen Favorit -->
+    <div class="mb-3">
+      <label for="selectDosen" class="form-label">Siapa Dosen Favoritmu?</label>
+      <select class="form-select" id="selectDosen" required>
+        <option selected disabled value="">Silakan pilih salah satu</option>
+        <option value="Pak Agus Mulyanto">Pak Agus Mulyanto</option>
+        <option value="Bu Yuni Roza">Bu Yuni Roza</option>
+        <option value="Bu Yessy Asri">Bu Yessy Asri</option>
+      </select>
+    </div>
+
+    <!-- Tanggal Lahir -->
+    <div class="mb-3">
+      <label for="inputTanggalLahir" class="form-label">Tanggal Lahir Anda:</label>
+      <input type="date" class="form-control" id="inputTanggalLahir" required />
+    </div>
+
+    <!-- Hal Favorit -->
+    <div class="favorite-section mb-4 p-3 border rounded">
+      <h3>Sebutkan Hal yang Kamu Sukai:</h3>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="inputTemanFavorit" class="form-label">Teman Favorit:</label>
+          <input type="text" class="form-control" id="inputTemanFavorit" placeholder="Contoh: Budi" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="inputAiFavorit" class="form-label">AI yang Kamu Sukai:</label>
+          <input type="text" class="form-control" id="inputAiFavorit" placeholder="Contoh: ChatGPT" required />
+        </div>
+      </div>
+    </div>
+
+    <!-- Tombol Kirim -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary px-4">Kirim Data</button>
+    </div>
+  </form>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- VALIDASI DAN NOTIFIKASI -->
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("inputName").value.trim();
+      const nim = document.getElementById("inputNIM").value.trim();
+      const asal = document.getElementById("inputAsal").value.trim();
+      const dosen = document.getElementById("selectDosen").value;
+      const tanggal = document.getElementById("inputTanggalLahir").value;
+      const teman = document.getElementById("inputTemanFavorit").value.trim();
+      const ai = document.getElementById("inputAiFavorit").value.trim();
+
+      if (!nama || !nim || !asal || !dosen || !tanggal || !teman || !ai) {
+        document.getElementById("alertBox").classList.remove("d-none");
+      } else {
+        document.getElementById("alertBox").classList.add("d-none");
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Data berhasil terkirim!',
+          text: 'Terima kasih telah mengisi form.',
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
