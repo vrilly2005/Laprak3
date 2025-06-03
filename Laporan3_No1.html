@@ -99,6 +99,8 @@
       alertBox.classList.add("hidden");
 
       output.innerHTML = `
+        <div class="output-box">Nama Kamu: ${nama} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
+        <div class="output-box">NIM Kamu: ${nim} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
         <div class="output-box">Asal Kamu: ${asal} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
         <div class="output-box">Dosen Favorit: ${dosen} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
         <div class="output-box">Tanggal Lahir Kamu: ${tgl} <span class="close-btn" onclick="removeBox(this)">&times;</span></div>
